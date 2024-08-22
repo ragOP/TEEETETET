@@ -22,6 +22,7 @@
     fbq('init', '1590104321547703');
     fbq('track', 'ViewContent');
   </script>
+  
   <!--jquery if not already available -->
 
   <script src="js/jquery-3.6.1.min.js" crossorigin="anonymous"></script>
@@ -549,7 +550,36 @@ Attention {State} Residents: Don't Miss Out on Up to $40,000 in Cash to Cover Bu
           <p class="font-serif text-md sm:text-lg font-bold mt-2">
 
           🚨 <span class="text-red-600">URGENT NOTICE:</span> Enrollment Closes 
-            <span id="currentDate">Tuesday, 10/03/2023</span> at Midnight! 🚨
+            <!-- <span id="currentDate">Tuesday, 10/03/2023</span> at Midnight! 🚨 -->
+            <span id="nextDate"></span> at Midnight! 🚨
+            <script>
+              function getFormattedDate(date) {
+                  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                  
+                  // Get the day name and formatted date
+                  const dayName = days[date.getDay()];
+                  const formattedDate = date.toLocaleDateString('en-US', {
+                      month: '2-digit',
+                      day: '2-digit',
+                      year: 'numeric'
+                  });
+                  
+                  return `${dayName}, ${formattedDate}`;
+              }
+      
+              function updateNextDate() {
+                  const today = new Date();
+            
+                  const floridaDate = new Date(today.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+                  
+                  const nextDayDate = new Date(floridaDate);
+                  nextDayDate.setDate(floridaDate.getDate() + 1);
+                  
+                  document.getElementById('nextDate').innerText = ` ${getFormattedDate(nextDayDate)}`;
+              }
+      
+              updateNextDate();
+          </script>
           </p>
           <h2 class="font-bold text-xl sm:text-3xl mt-1">
           Secure Your Family's Future with Up to $40,000 in Cash for Burial Expenses and Unpaid Bills. This New Benefit Program Won't Last—Act Now!
