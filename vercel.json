@@ -1,9 +1,12 @@
 {
-    "routes": [
-      {
-        "src": "/sfe",
-        "dest": "/sfe.html"
-      }
-    ]
-  }
-  
+  "routes": [
+    {
+      "src": "/sfe",
+      "dest": "/sfe.html"
+    },
+    {
+      "src": "/engfe1",
+      "dest": "/complex.html"
+    }
+  ]
+}
